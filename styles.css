@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+  --dark-cyan: hsl(185, 75%, 39%);
+  --very-dark-blue: hsl(229, 23%, 23%);
+  --dark-blue: hsl(227, 10%, 46%);
+
+  --neutral-gray: hsl(0, 0%, 59%);
+
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2rem;
+
+  --ff-primary: 'Kumbh Sans', sans-serif;
+
+  --fw-bold: 700;
+
+  --profile-img-height: 125px;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GENERAL STYLES */
+
+main {
+  height: 100%;
+}
+
+body {
+  background-color: var(--dark-cyan);
+  font-family: var(--ff-primary);
+}
+
+p {
+  font-size: var(--fs-500);
+}
+
+.main-container {
+  position: relative;
+  display: grid;
+  height: 100vh;
+  max-width: 1440px;
+  margin-inline: auto;
+  overflow: hidden;
+}
+
+.main-container::before {
+  content: url('images/bg-pattern-top.svg');
+  position: absolute;
+  top: -50%;
+  left: -20%;
+}
+
+.main-container::after {
+  content: url('images/bg-pattern-bottom.svg');
+  position: absolute;
+  top: 50%;
+  right: -20%;
+}
+
+.card {
+  margin-inline: auto;
+  text-align: center;
+  width: 400px;
+  display: grid;
+  grid-template-rows: 150px auto;
+  background-color: #fff;
+  border-radius: 1rem;
+  align-self: center;
+  z-index: 100;
+}
+
+.card img {
+  height: var(--profile-img-height);
+  border-radius: 50%;
+  position: absolute;
+  top: calc(150px - (var(--profile-img-height) / 2));
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  border: solid #fff 0.4rem;
+}
+
+.top-half {
+  position: relative;
+  background: url('images/bg-pattern-card.svg');
+  border-radius: 1rem 1rem 0 0;
+}
+
+.bottom-half {
+  padding-top: calc((var(--profile-img-height) / 2) + 1rem);
+}
+
+.bottom-half > p:first-child {
+  font-weight: 700;
+  /* margin-top: 0.25rem; */
+}
+
+.bottom-half > p:nth-child(2) {
+  color: var(--neutral-gray);
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+.bottom-half > p:first-child span {
+  padding-left: 1rem;
+  color: var(--neutral-gray);
+  font-weight: 400;
+}
+
+.stats {
+  padding: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+  border-top: solid 1px hsl(0, 0%, 89%);
+}
+
+.stat {
+  font-size: 0.75rem;
+  color: var(--neutral-gray);
+  letter-spacing: 1px;
+}
+
+.stat-number {
+  font-weight: 700;
+  color: var(--very-dark-blue);
+  font-size: 1.5rem;
+}
+
+@media (max-width: 500px) {
+  .card {
+    max-width: 90vw;
+  }
+
+  .stat-number {
+    font-size: var(--fs-500);
+  }
+
+  .stat {
+    font-size: 0.6rem;
+  }
+}
