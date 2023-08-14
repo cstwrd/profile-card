@@ -102,7 +102,11 @@ main {
 
 body {
   background-color: var(--dark-cyan);
+  background-image: url('/images/bg-pattern-top.svg'),
+    url('images/bg-pattern-bottom.svg');
+  background-repeat: no-repeat no-repeat;
   font-family: var(--ff-primary);
+  background-position: right 52vw bottom 35vh, left 48vw top 52vh;
 }
 
 p {
@@ -116,20 +120,6 @@ p {
   max-width: 1440px;
   margin-inline: auto;
   overflow: hidden;
-}
-
-.main-container::before {
-  content: url('images/bg-pattern-top.svg');
-  position: absolute;
-  top: -50%;
-  left: -20%;
-}
-
-.main-container::after {
-  content: url('images/bg-pattern-bottom.svg');
-  position: absolute;
-  top: 50%;
-  right: -20%;
 }
 
 .card {
@@ -203,6 +193,10 @@ p {
 }
 
 @media (max-width: 500px) {
+  body {
+    background-position: right 42vw bottom 45vh, left 48vw top 48vh;
+  }
+
   .card {
     max-width: 90vw;
   }
